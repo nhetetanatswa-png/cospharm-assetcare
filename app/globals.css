@@ -177,7 +177,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, canvas:focus-vi
 .share-status { width: 100%; margin: 0; color: var(--green); font-size: 11px; text-align: right; }
 .report-page { position: relative; isolation: isolate; width: min(980px, 100%); margin: auto; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
 .report-page > :not(.report-watermark) { position: relative; z-index: 1; }
-.report-watermark { position: absolute; z-index: 0; top: 46%; left: 50%; display: block; width: 68%; max-width: 620px; height: auto; opacity: .07; transform: translate(-50%, -50%) rotate(-12deg); filter: grayscale(1); pointer-events: none; }
+.report-watermark { position: absolute; z-index: 0; top: 46%; left: 50%; display: none; width: 68%; max-width: 620px; height: auto; opacity: .07; transform: translate(-50%, -50%) rotate(-12deg); filter: grayscale(1); pointer-events: none; }
 .report-header { min-height: 112px; padding: 19px 34px; display: flex; align-items: center; justify-content: space-between; gap: 32px; border-top: 7px solid var(--red); border-bottom: 1px solid var(--line); }
 .report-brand { display: flex; align-items: center; gap: 12px; }
 .report-logo { width: 76px; height: 65px; object-fit: contain; }
@@ -286,7 +286,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, canvas:focus-vi
   .report-shell { padding: 0; background: white; }
   .report-actions { display: none; }
   .report-page { width: 100%; border: 0; box-shadow: none; }
-  .report-watermark { position: absolute; top: 46%; width: 68%; max-width: 560px; opacity: .075; }
+  .report-watermark { display: block; position: absolute; top: 46%; width: 68%; max-width: 560px; opacity: .075; }
   .report-header { min-height: 82px; padding: 10px 22px; }
   .report-logo { width: 58px; height: 48px; }
   .report-title { padding: 17px 22px; }
