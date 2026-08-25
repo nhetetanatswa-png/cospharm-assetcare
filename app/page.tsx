@@ -286,6 +286,7 @@ export default function Home() {
         </div>
 
         <article className="report-page">
+          <img className="report-watermark" src="/assets/cospharm-logo.png" alt="" />
           <header className="report-header">
             <div className="report-brand">
               <img className="report-logo" src="/assets/cospharm-logo.png" alt="Cospharm logo" />
