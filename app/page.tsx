@@ -185,6 +185,7 @@ function SignaturePad({ value, onChange }: { value: string; onChange: (signature
 
 export default function Home() {
   const today = new Date().toISOString().slice(0, 10);
+  const [vantageEmbedded, setVantageEmbedded] = useState(false);
   const [startedAt] = useState(() => new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit" }).format(new Date()));
   const [step, setStep] = useState(0);
   const [finalized, setFinalized] = useState(false);
@@ -196,6 +197,10 @@ export default function Home() {
   const [employee, setEmployee] = useState<Employee>({ name: "", department: "", position: "", transactionDate: today });
   const [assets, setAssets] = useState<Asset[]>([makeAsset("")]);
   const [accessories, setAccessories] = useState<Accessory[]>(accessoryNames.map((name) => ({ name, selected: false, quantity: 1, comments: "" })));
+
+  useEffect(() => {
+    setVantageEmbedded(new URLSearchParams(window.location.search).get("embedded") === "vantage");
+  }, []);
 
   const actionWord = transactionType === "return" ? "Return" : "Receipt";
   const actionVerb = transactionType === "return" ? "returning" : "receiving";
@@ -382,6 +387,7 @@ export default function Home() {
   return (
     <div className="app-shell fleet-theme">
       <aside className="sidebar">
+        {vantageEmbedded && <div className="vantage-side-panel"><a className="vantage-home-link" href="/" target="_top" aria-label="Return to Vantage OS"><span className="vantage-mark">V</span><span><strong>Vantage OS</strong><small>Return to platform</small></span></a><a className="vantage-fullscreen-link" href="./index.html" target="_blank" rel="noreferrer">Open full screen <Icon name="arrow" size={15}/></a></div>}
         <Brand />
         <nav aria-label="Primary navigation">
           <button className="active" type="button" onClick={() => setStep(0)}><Icon name="clipboard" /><span>Asset transaction</span></button>
